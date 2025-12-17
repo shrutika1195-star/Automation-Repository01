@@ -1,6 +1,11 @@
 package dynamic_code;
 
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.AWTException;
 import java.awt.Desktop.Action;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
@@ -95,5 +100,29 @@ public class BaseClass {
         act.clickAndHold().moveByOffset(-150, 0).release().build().perform();
         
     }
+    public static void RobotClass (By Locator5 , String path) throws AWTException{
+    	
+		
+		WebElement selectPDF = driver.findElement(Locator5);
+		selectPDF.click();
+		
+		StringSelection s =new StringSelection(path);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s, null);
+		Robot r =new Robot();
+		 
+		r.delay(3000);
+		
+		r.keyPress(KeyEvent.VK_CONTROL);
+		r.keyPress(KeyEvent.VK_V);
+		
+		r.keyRelease(KeyEvent.VK_CONTROL);
+		r.keyRelease(KeyEvent.VK_V);
+		//enter button
+		
+		r.keyPress(KeyEvent.VK_ENTER);
+		r.keyRelease(KeyEvent.VK_ENTER);
+    	
+    }
+    
     }
 
