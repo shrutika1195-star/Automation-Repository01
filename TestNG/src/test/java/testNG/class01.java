@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class class01 {
@@ -22,7 +21,7 @@ public class class01 {
 		System.out.println("launch browser");
 	}
 
-	@BeforeMethod
+	@Test(priority = 0)    //firstcry
 	public void Hiturl() throws InterruptedException {
 		driver.get(
 				"https://www.firstcry.com/?ref=afgbm_21145&utm_source=afgbm&utm_medium=aff&utm_content=afgbm&gad_source=1");

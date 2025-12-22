@@ -7,10 +7,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class class02 {
+public class class02{
 	WebDriver driver;
 
 	@BeforeClass
@@ -21,15 +20,14 @@ public class class02 {
 		System.out.println("launch browser");
 	}
 
-	@BeforeMethod
+	@Test(priority =0)      //Amazon
 	public void Hiturl() throws InterruptedException {
-		driver.get("https://www.amazon.com/");
+		driver.get("https://www.amazon.com/");     
 		System.out.println("Hiturl");
 		Thread.sleep(2000);
-		WebElement continueshopping =driver.findElement(By.xpath("class=\"a-button-text\""));
-		continueshopping.click();
+
 	}
-	@Test
+	@Test(priority = 1)
 	public void searchbar() {
 		WebElement searchbar = driver.findElement(By.xpath("//input[@type=\"text\"]"));
 		searchbar.click();
@@ -37,18 +35,18 @@ public class class02 {
 		searchbar.sendKeys("jackets for women");
 
 	}
-	@Test
+	@Test(priority = 2)
 	public void searchbutton() {
 		WebElement searchbutton = driver.findElement(By.xpath("//input[@id=\"nav-search-submit-button\"]"));
 		searchbutton.click();
 		System.out.println("click on search button");
 	}
-	@Test
+	@Test(priority = 3)
 	public void selectproduct() {
 		WebElement selectproduct = driver.findElement(By.xpath("(//img[@class=\"s-image\"])[20]"));
 		selectproduct.click();
 	}
-    @Test
+    @Test(priority = 4)
 	public void selectsize() {
 		WebElement selectproduct = driver.findElement(By.xpath("(//input[@aria-posinset=\"1\"])[2]"));
 		selectproduct.click();
